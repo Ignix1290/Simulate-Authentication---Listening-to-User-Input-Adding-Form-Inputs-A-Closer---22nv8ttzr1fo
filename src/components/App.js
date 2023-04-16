@@ -14,11 +14,12 @@ const loginPassword = useRef('');
 const [loggedInUser, setLoggedInUser] = useState(null);
 
   function handleSignup(){
-    // if(passwordInput.current.value == confirmPassword.current.value){
-      
-    // }
     let u1 = new User(nameInput.current.value, emailInput.current.value, passwordInput.current.value);
-    setUser(u1);
+    
+    if(passwordInput.current.value == confirmPassword.current.value){
+      setUser(u1);
+    }
+    
   }
   function handleLogout() {
     setLoggedInUser(null);
