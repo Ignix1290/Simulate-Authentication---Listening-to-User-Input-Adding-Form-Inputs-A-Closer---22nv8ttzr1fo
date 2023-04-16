@@ -12,7 +12,7 @@ const [user, setUser] = useState(null);
 const loginEmail = useRef('');
 const loginPassword = useRef('');
 const [loggedInUser, setLoggedInUser] = useState(null);
-const signUpForm = document.querySelector(".beforeLogin");
+
   function handleSignup(){
     if(passwordInput.current.value == confirmPassword.current.value){
       let u1 = new User(nameInput.current.value, emailInput.current.value, passwordInput.current.value);
@@ -44,7 +44,7 @@ const signUpForm = document.querySelector(".beforeLogin");
           </tr>}
         </tbody>
       </table>
-      {loggedInUser == null ? <div className="beforeLogin">
+      {loggedInUser == null ? <div>
           <form className="signup-form">
             <label htmlFor="name">Name</label>
             <input type="text" name="signupName" id="signupName" ref={nameInput}/>
@@ -65,7 +65,7 @@ const signUpForm = document.querySelector(".beforeLogin");
           <button id="login-button" onClick={handleLogin}>Login</button>
         </div>
         :
-        <div className="afterLogin">
+        <div>
           <h3 id="username">{loggedInUser.name}</h3>
           <h3 id="email">{loggedInUser.email}</h3>
           <button onClick={handleLogout} id="logout-button">Logout</button>
