@@ -5,7 +5,8 @@ const App = () => {
 //for signup
 const nameInput = useRef();
 const emailInput = useRef();
-const passwordInput= useRef();
+const passwordInput = useRef();
+const confirmPassword = useRef();
 const [user, setUser] = useState(null);
 //for login
 const loginEmail = useRef('');
@@ -13,8 +14,10 @@ const loginPassword = useRef('');
 const [loggedInUser, setLoggedInUser] = useState(null);
 const signUpForm = document.querySelector(".beforeLogin");
   function handleSignup(){
-    let u1 = new User(nameInput.current.value, emailInput.current.value, passwordInput.current.value);
+    if(passwordInput.current.value == confirmPassword.current.value){
+      let u1 = new User(nameInput.current.value, emailInput.current.value, passwordInput.current.value);
     setUser(u1);
+    }
   }
   function handleLogout() {
     setLoggedInUser(null);
@@ -50,7 +53,7 @@ const signUpForm = document.querySelector(".beforeLogin");
             <label htmlFor="password">Password</label>
             <input type="password" name="signupPassword" id="signupPassword" ref={passwordInput}/>
             <label htmlFor="confirmPassword">Confirm Password</label>
-            <input type="password" name="signupConfirmPassword" id="signupConfirmPassword"/>
+            <input type="password" name="signupConfirmPassword" id="signupConfirmPassword" ref={confirmPassword}/>
           </form>
           <button id="signup-button" onClick={handleSignup}>Signup</button>
           <form className="login-styles">
