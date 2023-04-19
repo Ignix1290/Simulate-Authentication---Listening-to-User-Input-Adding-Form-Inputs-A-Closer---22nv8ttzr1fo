@@ -14,9 +14,10 @@ const loginPassword = useRef('');
 const [loggedInUser, setLoggedInUser] = useState(null);
 
   function handleSignup(){
-    let u1 = new User(nameInput.current.value, emailInput.current.value, passwordInput.current.value);
+    
     
     if(passwordInput.current.value == confirmPassword.current.value){
+      let u1 = new User(nameInput.current.value, emailInput.current.value, passwordInput.current.value);
       setUser(u1);
     }
     
