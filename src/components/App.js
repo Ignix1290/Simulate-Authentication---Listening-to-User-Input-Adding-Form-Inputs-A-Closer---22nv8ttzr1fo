@@ -26,7 +26,7 @@ const [loggedInUser, setLoggedInUser] = useState(null);
     setLoggedInUser(null);
   }
   function handleLogin(){
-    if(loginEmail.current.value == user.email && loginPassword.current.value == user.password){
+    if(user && loginEmail.current.value == user.email && loginPassword.current.value == user.password){
       setLoggedInUser(user);
     }
   }
